@@ -18,8 +18,9 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private ListView lvMovies;
-    private String[] movies = {"Avatar 2", "Black Adam", "Thor: Love and Thunder", "Black Panther: Wakanda Forever", "Smile"};
+    private String[] movies = {"avatar", "Black Adam", "Thor: Love and Thunder", "Black Panther: Wakanda Forever", "Smile"};
     private String[] averageVote = {"8.9", "7.5", "7.9", "7.3", "6.8"};
+    private int[] imageMovies = {getAssets().};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
