@@ -13,6 +13,13 @@
         android:theme="@style/Theme.MovieNative"
         tools:targetApi="31">
         <activity
+            android:name=".DetailsMovie"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".customMovieListView"
             android:exported="false">
             <meta-data
