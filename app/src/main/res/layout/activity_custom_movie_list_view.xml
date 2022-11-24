@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="200dp"
     android:layout_margin="10dp"
     android:layout_marginHorizontal="10dp"
 
@@ -14,14 +14,13 @@
 
     <LinearLayout
         android:id="@+id/Column1"
-        android:layout_width="130dp"
+        android:layout_width="120dp"
         android:layout_height="match_parent">
-
         <ImageView
-            android:id="@+id/imageMoviePoster"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
             android:scaleType="centerCrop"
+            android:id="@+id/imageMoviePoster"
+            android:layout_width="120dp"
+            android:layout_height="200dp"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>
 
@@ -36,23 +35,36 @@
 
         <TextView
             android:id="@+id/tvMovieName"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:minWidth="70dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+
+            android:layout_marginLeft="5sp"
             android:paddingTop="20dp"
             android:text="Title"
-            android:textStyle="bold"
-            android:textSize="24sp" />
+            android:ellipsize="end"
+            android:maxLines="3"
+
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvSubName"
-            android:layout_width="match_parent"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:minWidth="70dp"
+
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvMovieName"
             android:layout_marginLeft="10dp"
             android:paddingTop="10dp"
             android:text="Original Title"
             android:textSize="20sp" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -64,10 +76,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_gravity="center"
             android:id="@+id/startIcon"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:layout_gravity="center"
             android:paddingTop="35dp"
             android:src="@drawable/star" />
 
