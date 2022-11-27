@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
-    android:layout_height="200dp"
-    android:layout_margin="10dp"
-
+    android:layout_height="230dp"
+    android:layout_margin="20dp"
     android:elevation="20dp"
     app:cardCornerRadius="20dp"
+    android:layout_gravity="center"
     app:flow_horizontalAlign="center"
     tools:context=".customCastListView">
 
@@ -18,17 +18,17 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/imageCast"
+            android:id="@+id/ivCastMovie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/av2_cliff_curtis" />
 
     </LinearLayout>
     <TextView
         android:id="@+id/tvNameActor"
-        android:paddingTop="160dp"
-        android:paddingHorizontal="5dp"
+        android:paddingTop="170dp"
+        android:paddingHorizontal="10dp"
         android:textSize="18sp"
         android:text="Actor"
         android:textColor="@color/black"

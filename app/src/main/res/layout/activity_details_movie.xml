@@ -1,77 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#000000"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailsMovie">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp"
+        tools:context=".DetailsMovie">
 
         <ImageView
             android:id="@+id/ivPosterMovie"
             android:layout_width="match_parent"
-            android:layout_height="275dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_background"></ImageView>
 
         <TextView
             android:id="@+id/tvTitleMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingTop="20dp"
+            android:layout_marginTop="410dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:minWidth="300dp"
+            android:paddingHorizontal="20dp"
             android:text="Title"
-            android:textSize="40sp"
-            android:textStyle="bold" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/white"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvOriginalMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
+            android:layout_marginTop="60dp"
+            android:ellipsize="end"
+            android:paddingHorizontal="20dp"
             android:text="Original Title"
+            android:textColor="#CAC0C0"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="italic"
+            app:layout_constraintTop_toTopOf="@id/tvTitleMovie"
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/tvBrief"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
-            android:paddingTop="20dp"
+            android:layout_marginTop="50dp"
+            android:justificationMode="inter_word"
+            android:paddingHorizontal="20dp"
+            android:textColor="#CAC0C0"
             android:text="Brief"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/tvOriginalMovie" />
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ListView
-            android:id="@+id/listViewCast"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:dividerHeight="5dp"
-            android:padding="20dp"
-            android:textColor="@android:color/holo_orange_dark"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <androidx.cardview.widget.CardView
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="250dp"
+            android:layout_marginRight="20dp"
+            android:elevation="20dp"
+            android:outlineAmbientShadowColor="#202020"
+            android:outlineSpotShadowColor="#202020"
+            app:cardCornerRadius="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivPosterMovie"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginBottom="80dp"
+            tools:ignore="MissingConstraints">
+
+            <LinearLayout
+                android:id="@+id/Column1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/startIcon"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/star"
+                    app:layout_constraintEnd_toEndOf="@+id/ivPosterMovie"
+                    app:layout_constraintTop_toTopOf="@+id/ivPosterMovie"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/tvRating"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_below="@id/startIcon"
+                    android:layout_toEndOf="@+id/startIcon"
+                    android:text="8.9"
+                    android:textAlignment="center"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:background="#00000000"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/backbtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white"
             tools:ignore="MissingConstraints" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDetailsMovie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBrief" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

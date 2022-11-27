@@ -16,52 +16,51 @@
         android:id="@+id/Column1"
         android:layout_width="120dp"
         android:layout_height="match_parent">
+
         <ImageView
-            android:scaleType="centerCrop"
             android:id="@+id/imageMoviePoster"
             android:layout_width="120dp"
             android:layout_height="200dp"
+            android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/Column2"
         android:layout_width="160dp"
-        android:paddingBottom="20dp"
         android:layout_height="match_parent"
         android:layout_marginStart="130dp"
         android:layout_toEndOf="@+id/Column1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
 
         <TextView
             android:id="@+id/tvMovieName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minWidth="70dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-
             android:layout_marginLeft="5sp"
-            android:paddingTop="20dp"
-            android:text="Title"
             android:ellipsize="end"
             android:maxLines="3"
-
+            android:minWidth="70dp"
+            android:paddingTop="20dp"
+            android:text="Title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvSubName"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:minWidth="70dp"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tvMovieName"
             android:layout_marginLeft="10dp"
+
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:minWidth="70dp"
             android:paddingTop="10dp"
             android:text="Original Title"
+            android:textAppearance="?android:attr/textAppearanceMedium"
             android:textSize="20sp" />
 
 
@@ -91,9 +90,9 @@
             android:layout_toEndOf="@+id/startIcon"
             android:paddingTop="10dp"
             android:text="8.9"
-            android:textStyle="bold"
             android:textAlignment="center"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

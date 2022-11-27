@@ -1,51 +1,49 @@
 package com.example.movienative;
 
-
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class CustomBaseAdapterCast extends BaseAdapter {
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
-    Context context;
+public class CustomBaseAdapterCast extends RecyclerView.Adapter<CustomBaseAdapterCast.MyViewHolder> {
     String[] nameActor;
     int[] imageUrl;
-    LayoutInflater inflater;
 
-    public CustomBaseAdapterCast(Context context, String[] nameActor, int[] imageUrl){
-        this.context = context;
+    public CustomBaseAdapterCast(String[] nameActor, int[] imageUrl) {
+        this.nameActor = nameActor;
         this.imageUrl = imageUrl;
-        inflater = LayoutInflater.from(context);
+    }
+
+    @NonNull
+    @Override
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_cast_list_view, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.tvActorName.setText(nameActor[position]);
+        holder.moviePoster.setImageResource(imageUrl[position]);
+    }
+
+    @Override
+    public int getItemCount() {
         return nameActor.length;
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
+    class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView tvActorName;
+        ImageView moviePoster;
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflater.inflate(R.layout.custom_cast_list_view, null);
-        TextView name = (TextView) view.findViewById(R.id.tvNameActor);
-        ImageView moviePoster = (ImageView) view.findViewById(R.id.imageMoviePoster);
-
-        name.setText(nameActor[i]);
-        moviePoster.setImageResource(imageUrl[i]);
-        return view;
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            tvActorName = itemView.findViewById(R.id.tvNameActor);
+            moviePoster = itemView.findViewById(R.id.ivCastMovie);
+        }
     }
 }
-
