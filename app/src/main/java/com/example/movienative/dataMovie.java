@@ -7,7 +7,6 @@ public class dataMovie {
     MovieClass[] movies = new MovieClass[moviesNames.length];
     public void loadMovies(){
         for(int i = 0; i < moviesNames.length; i++){
-            movies[i] = new MovieClass(moviesNames[i], averageVote[i], "", null, brief);
         }
     }
 }

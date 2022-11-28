@@ -20,7 +20,7 @@
         <ImageView
             android:id="@+id/ivCastMovie"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="191dp"
             android:scaleType="centerCrop"
             android:src="@drawable/av2_cliff_curtis" />
 
