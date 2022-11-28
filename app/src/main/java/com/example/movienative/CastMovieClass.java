@@ -1,6 +1,8 @@
 package com.example.movienative;
 
-public class CastMovieClass {
+import java.io.Serializable;
+
+public class CastMovieClass implements Serializable {
     private String[] name;
     private int[] actorImageUrl;
 

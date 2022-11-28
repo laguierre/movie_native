@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String AVERAGE_VOTE = "average vote";
     public static final String CAST_MOVIE = "cast movie";
     public static final String CAST_MOVIE_PHOTO = "cast movie photo";
+    public static final String SELECTED_MOVIE = "selected movie";
 
 
     private ListView lvMovies;
@@ -84,22 +86,16 @@ public class MainActivity extends AppCompatActivity {
             imageMovies[i] = movie.getImageUrl();
         }
         
-        CustomBaseAdapterMovie customBaseAdapterMovie = new CustomBaseAdapterMovie(getApplicationContext(), moviesTitle, averageVote, moviesOriginalTitle, imageMovies);
+        CustomBaseAdapterMovie customBaseAdapterMovie = new CustomBaseAdapterMovie(getApplicationContext(), movieList);
         lvMovies.setAdapter(customBaseAdapterMovie);
 
         lvMovies.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                MovieClass movie = movieList.get(i);
                 Intent intent = new Intent(view.getContext(), DetailsMovie.class);
-                intent.putExtra(MOVIE_TITLE, moviesTitle[i]);
-                intent.putExtra(MOVIE_ORIGINAL_TITLE, moviesOriginalTitle[i]);
-                intent.putExtra(URL_IMAGE, imageMovies[i]);
-                intent.putExtra(AVERAGE_VOTE, averageVote[i]);
-                intent.putExtra(BRIEF_MOVIE, briefMovie[i]);
-                String[] castMovie = cast[i];
-                int[] castPhotos = castMovieUrl[i];
-                intent.putExtra(CAST_MOVIE, castMovie);
-                intent.putExtra(CAST_MOVIE_PHOTO, castPhotos);
+
+                intent.putExtra(SELECTED_MOVIE, movie);
                 startActivity(intent);
             }
         });

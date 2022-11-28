@@ -1,5 +1,7 @@
 package com.example.movienative;
 
+import static com.example.movienative.MainActivity.SELECTED_MOVIE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +16,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.List;
 
 public class DetailsMovie extends AppCompatActivity {
     private ImageView ivImage;
@@ -43,25 +47,19 @@ public class DetailsMovie extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.rvDetailsMovie);
 
         Intent intent = getIntent();
-        String titleMovie = intent.getStringExtra(MainActivity.MOVIE_TITLE);
-        String brief = intent.getStringExtra(MainActivity.BRIEF_MOVIE);
-        String originalTitle = intent.getStringExtra(MainActivity.MOVIE_ORIGINAL_TITLE);
-        String averageVote = intent.getStringExtra(MainActivity.AVERAGE_VOTE);
-        int urlPoster = intent.getIntExtra(MainActivity.URL_IMAGE, -1);
-        String[] cast = intent.getStringArrayExtra(MainActivity.CAST_MOVIE);
-        int[] urlActorPoster = intent.getIntArrayExtra(MainActivity.CAST_MOVIE_PHOTO);
+        MovieClass movie = (MovieClass) intent.getSerializableExtra(SELECTED_MOVIE);
 
-        tvMovieTitle.setText(titleMovie);
-        tvOriginalTitle.setText(originalTitle);
-        tvBriefMovie.setText(brief);
-        tvRating.setText(averageVote);
-        ivImage.setImageResource(urlPoster);
+        tvMovieTitle.setText(movie.getMovieTitle());
+        tvOriginalTitle.setText(movie.getOriginalTitle());
+        tvBriefMovie.setText(movie.getMovieBrief());
+        tvRating.setText(movie.getMovieRating());
+        ivImage.setImageResource(movie.getImageUrl());
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new CustomBaseAdapterCast(cast, urlActorPoster));
+        recyclerView.setAdapter(new CustomBaseAdapterCast(movie.cast.getActorName(), movie.cast.getActorImageUrl()));
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

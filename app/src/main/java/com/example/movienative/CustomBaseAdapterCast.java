@@ -9,9 +9,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class CustomBaseAdapterCast extends RecyclerView.Adapter<CustomBaseAdapterCast.MyViewHolder> {
     String[] nameActor;
     int[] imageUrl;
+    List<CastMovieClass> listCastMovie;
 
     public CustomBaseAdapterCast(String[] nameActor, int[] imageUrl) {
         this.nameActor = nameActor;
@@ -29,6 +32,7 @@ public class CustomBaseAdapterCast extends RecyclerView.Adapter<CustomBaseAdapte
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tvActorName.setText(nameActor[position]);
         holder.moviePoster.setImageResource(imageUrl[position]);
+
     }
 
     @Override

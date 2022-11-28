@@ -8,27 +8,23 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class CustomBaseAdapterMovie extends BaseAdapter {
 
     Context context;
-    String[] titleMovie;
-    String[] originalTitleMovie;
-    int[] imageUrl;
-    String[] voteAverage;
     LayoutInflater inflater;
+    private List<MovieClass> movieList;
 
-    public CustomBaseAdapterMovie(Context context, String[] titleMovie, String[] voteAverage, String[] originalTitle, int[] imageUrl){
+    public CustomBaseAdapterMovie(Context context, List<MovieClass> movieList){
         this.context = context;
-        this.voteAverage = voteAverage;
-        this.originalTitleMovie = originalTitle;
-        this.titleMovie = titleMovie;
-        this.imageUrl = imageUrl;
+        this.movieList = movieList;
         inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return titleMovie.length;
+        return movieList.size();
     }
 
     @Override
@@ -49,10 +45,11 @@ public class CustomBaseAdapterMovie extends BaseAdapter {
         TextView rating = (TextView) view.findViewById(R.id.tvRating);
         ImageView moviePoster = (ImageView) view.findViewById(R.id.imageMoviePoster);
 
-        title.setText(titleMovie[i]);
-        originalTitle.setText(originalTitleMovie[i]);
-        rating.setText(voteAverage[i]);
-        moviePoster.setImageResource(imageUrl[i]);
+        MovieClass movie = movieList.get(i);
+        title.setText(movie.getMovieTitle());
+        originalTitle.setText(movie.getOriginalTitle());
+        rating.setText(movie.getMovieRating());
+        moviePoster.setImageResource(movie.getImageUrl());
         return view;
     }
 }

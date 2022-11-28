@@ -1,6 +1,8 @@
 package com.example.movienative;
 
-public class MovieClass {
+import java.io.Serializable;
+
+public class MovieClass implements Serializable {
     String movieTitle;
     String originalTitle;
     String movieRating;
