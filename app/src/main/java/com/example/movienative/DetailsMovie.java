@@ -63,8 +63,7 @@ public class DetailsMovie extends AppCompatActivity {
 
         buttonBack.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(DetailsMovie.this
-                        , MainActivity.class);
+                Intent intent = new Intent(DetailsMovie.this, MainActivity.class);
                 startActivity(intent);
             }
         });

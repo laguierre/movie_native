@@ -22,19 +22,15 @@ public class MovieClass implements Serializable {
     public String getMovieTitle() {
         return this.movieTitle;
     }
-
     public String getMovieRating() {
         return this.movieRating;
     }
-
     public int getImageUrl() {
         return this.imageUrl;
     }
-
     public String getMovieBrief() {
         return this.brief;
     }
-
     public CastMovieClass getMovieCast() {
         return this.cast;
     }

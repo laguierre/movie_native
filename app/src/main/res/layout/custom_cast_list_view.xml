@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="150dp"
-    android:layout_height="230dp"
+    android:layout_height="210dp"
     android:layout_margin="20dp"
     android:elevation="20dp"
     app:cardCornerRadius="20dp"
@@ -27,7 +27,7 @@
     </LinearLayout>
     <TextView
         android:id="@+id/tvNameActor"
-        android:paddingTop="170dp"
+        android:paddingTop="155dp"
         android:paddingHorizontal="10dp"
         android:textSize="18sp"
         android:text="Actor"
