@@ -1,15 +1,15 @@
 # Movies APP Native
 
-Final Project for "Mobile Programming Course" in native JAVA.
-Two activities, the main where the movies are showed and the other for info details movie, with movie cast.
+Final Project for "Mobile Programming Course" in JAVA native.
+Two activities, the main where the movies are showed and the other for info details & cast movie.
 The the images are hardcoding in res/drawable resource. 
 
-- ListView (for verticial show movies) and RecyclerView (for horizontal cast actors).
-- Eliminate APP and Status bar and made them transparent.
-- Intent to second activity with the implementation of Serializable. 
+- ListView (for vertical movies) and RecyclerView (for horizontal cast actors).
+- Removed APP and Status bar and made them transparent.
+- Navigation to second activity with the "Serializable" implementation. 
 - Custom adapter for ListView items and Cast CardView.
-- Backgound gradient.
-- Design over .xml files.
+- Background gradient.
+- User design over .xml files.
 - TextView.
 - ImageView.
 - ImageButton.
